@@ -1,11 +1,11 @@
 <?php
+require_once "TransnationalResult.php";
+require_once "TransnationalResponseCodes.php";
+require_once "TransnationalEndpointResponseCodes.php";
+require_once "ProcessTransactionResultTraits/Card.php";
+require_once "ProcessTransactionResultTraits/Universal.php";
+require_once "ProcessTransactionResultTraits/Ach.php";
 
-namespace App\Transnational;
-
-use App\Transnational\ProcessTransactionResultTrait\Ach;
-use App\Transnational\ProcessTransactionResultTrait\Card;
-use App\Transnational\ProcessTransactionResultTrait\Universal;
-use App\Transnational\ResponseTrait;
 
 class ProcessTransactionResult extends TransnationalResult
 {
@@ -13,26 +13,17 @@ class ProcessTransactionResult extends TransnationalResult
 	use Universal;
 	use Card;
 	use Ach;
-	use ResponseTrait\Address;
-	use ResponseTrait\Amount;
 	/**
 	*	Helper Functions
 	*/
 	public function isSuccess(){
-		if(parent::isSuccess()){
+		if($this->response_code == self::HTTP_OK && $this->get_request_status() == self::SUCCESS){
 			$response_code = $this->get_response_code();
 			if($response_code != null && $response_code == self::SUCCESS_CODE){
 				return true;
 			}
 		}
 		return false;
-		// if($this->response_code == self::HTTP_OK && $this->get_request_status() == self::SUCCESS){
-		// 	$response_code = $this->get_response_code();
-		// 	if($response_code != null && $response_code == self::SUCCESS_CODE){
-		// 		return true;
-		// 	}
-		// }
-		// return false;
 
 	}
 
@@ -114,7 +105,6 @@ class ProcessTransactionResult extends TransnationalResult
 			return $this->data->amount;
 		}
 	}
-
 	public function get_amount_authorized(){
 		if($this->data){
 			return $this->data->amount_authorized;
@@ -257,6 +247,36 @@ class ProcessTransactionResult extends TransnationalResult
 		if($this->data){
 			return $this->data->settled_at;
 		}
+	}
+
+	/**
+	*	@param bool $returnNullIfEmpty - Determines output if no Address
+	*	If True - return output as null
+	*	If false - return output as array of empty strings
+	*/
+	public function get_billing_address($returnNullIfEmpty = true){
+		if($this->data){
+			if(!$returnNullIfEmpty){
+				return $this->data->billing_address;
+			}
+			foreach ($this->data->billing_address as $key => $value) {
+				if($value != ""){
+					return $this->data->billing_address;
+				}
+			}
+		}
+		return null;
+	}
+	public function get_shipping_address($returnNullIfEmpty = true){
+		if(!$returnNullIfEmpty){
+			return $this->data->shipping_address;
+		}
+		foreach ($this->data->shipping_address as $key => $value) {
+			if($value != ""){
+				return $this->data->shipping_address;
+			}
+		}
+		return null;
 	}
 
 	/**

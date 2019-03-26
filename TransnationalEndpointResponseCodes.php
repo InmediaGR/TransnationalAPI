@@ -1,7 +1,5 @@
 <?php
 
-namespace App\Transnational;
-
 class TransnationalEndpointResponseCodes{
 
 
@@ -19,8 +17,9 @@ class TransnationalEndpointResponseCodes{
 		return false;
 	}
 	public static function getAction($code){
-		if(array_key_exists($code, self::CODES)){
-			return self::CODES[$code]['action'];
+		$code = self::CODES[$code];
+		if($code){
+			return $code['action'];
 		}
 		return false;
 	}

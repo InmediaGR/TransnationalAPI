@@ -1,7 +1,5 @@
 <?php
 
-namespace App\Transnational;
-
 class TransnationalResponseCodes{
 
 

@@ -1,6 +1,5 @@
-<?php
-namespace App\Transnational\APIException;
-
+<?php 
+require_once("transnational/TransnationalException.php");
 class ErrorResultException extends TransnationalException{
 
 	public $http_code;
