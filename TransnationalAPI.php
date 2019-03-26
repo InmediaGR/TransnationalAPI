@@ -1,4 +1,6 @@
 <?php
+namespace App\Transnational;
+
 abstract class TransnationalAPI
 {
 	/**
@@ -6,18 +8,23 @@ abstract class TransnationalAPI
 	*/
 	const DEV_URL = "https://sandbox.gotnpgateway.com/api/";
 	const URL = "https://app.gotnpgateway.com/api/";
+	const MOCKUP_LEVEL = 99;
+
 
 	/**
-	*	DEBUG CONSTANT
+	*	Exceptions holder
 	*/
-	const DEBUG = 0;
+	protected $exceptions = [];
 
 	/* Variable that indicated the dev/prod status */
+	/* Also set level of debug testing */
 	protected $dev = false;
+	protected $level = 0;
 
 	/* sets the dev/prod status */
-	public function setEnv($dev){
+	public function setEnv($dev,$level = 0){
 		$this->dev = $dev;
+		$this->level = $level;
 	}
 	/**
 	 * Returned HTTP HEADER CODE
@@ -28,6 +35,11 @@ abstract class TransnationalAPI
 	 * The Http Headers
 	 */
 	protected $HTTP_HEADERS = [];
+
+	/**
+	* Method for caller to run API
+	*/
+	public abstract function run($auth);
 
 	/**
 	 * Call the API using cURL based on the class calling the callAPI function
@@ -82,18 +94,25 @@ abstract class TransnationalAPI
 		//Have curl return result to variable
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 		// grab URL and pass it to the browser
+		if(!empty($this->exceptions)){
+			if($this->level == 6 || $this->level == 1){
+				$this->var_dump_pre($this->exceptions);
+			}
+			throw $this->exceptions[0];
+		}
+
 		$result = curl_exec($curl);
 		$this->HTTP_CODE = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-		if(self::DEBUG == 5 || self::DEBUG == 1){
+		if($this->level == 5 || $this->level == 1){
 			$this->var_dump_pre(curl_errno($curl));
 			$this->var_dump_pre(curl_error($curl));
 		}
 		//get info from request
-		if(self::DEBUG == 3 || self::DEBUG == 1 ){
+		if($this->level == 3 || $this->level == 1 ){
 			$information = curl_getinfo($curl);
 			$this->var_dump_pre($information);
 		}
-		if(self::DEBUG == 5 || self::DEBUG == 1 ){
+		if($this->level == 5 || $this->level == 1 ){
 			$this->var_dump_pre($result);
 		}
 		// close cURL resource, and free up system resources
@@ -125,8 +144,20 @@ abstract class TransnationalAPI
 
 	/**
 	 * gets the URL for calling the API
+	 * override to use different url
 	 */
-	protected abstract function getURL();
+	protected function getURL(){
+		if($this->dev){
+			return self::DEV_URL . $this->getPath();
+		}else{
+			return self::URL . $this->getPath();
+		}
+	}
+
+	/**
+	 * gets the path
+	 */
+	protected abstract function getPath();
 
 	/**
 	 * gets the Headers to set for the API

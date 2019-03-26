@@ -1,5 +1,9 @@
 <?php
-require_once "TransnationalAuthPostRequest.php";
+namespace App\Transnational;
+
+use App\Transnational\QueryTransactionResult;
+use App\Transnational\TransnationalResult;
+
 class QueryTransaction extends TransnationalAuthPostRequest
 {
 
@@ -61,10 +65,18 @@ class QueryTransaction extends TransnationalAuthPostRequest
 	}
 
 	public function addSearch($condition,$operator,$value){
-		$this->query[$condition] =  
+		$this->query[$condition] =
 		array(
 			'operator' => $operator,
 			'value' => $value
+		);
+	}
+
+	public function addDateSearch($condition,$start_date,$end_date){
+		$this->query[$condition] =
+		array(
+			'start_date' => $start_date,
+			'end_date' => $end_date
 		);
 	}
 
@@ -75,7 +87,7 @@ class QueryTransaction extends TransnationalAuthPostRequest
 		$this->query[$address][$condition] =
 		array(
 			'operator' =>  $operator,
-			'value' => $value 
+			'value' => $value
 		);
 		return $this->query;
 	}
@@ -94,8 +106,19 @@ class QueryTransaction extends TransnationalAuthPostRequest
 		return json_encode($data);
 	}
 
-	protected function getURL(){
-		return self::URL . self::PATH;
+
+	protected function getPath(){
+		return  self::PATH;
+	}
+	/**
+	* Wrapper method to the TransnationalAPI->callAPI method
+	*/
+	public function run($auth){
+		return new QueryTransactionResult($this->callAPI($auth),$this->getHTTPCode());
+	}
+
+	protected function newInstace($json_data){
+		return $this;
 	}
 
 }

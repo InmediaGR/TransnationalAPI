@@ -1,8 +1,6 @@
 <?php
+namespace App\Transnational\ProcessTransactionResultTrait;
 trait Universal{
-
-
-
 	/*
 	 *	Depending on method the proccessor specific can be different
 	 */

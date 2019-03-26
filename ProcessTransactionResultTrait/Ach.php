@@ -1,4 +1,5 @@
 <?php
+namespace App\Transnational\ProcessTransactionResultTrait;
 trait Ach{
 
 	/**

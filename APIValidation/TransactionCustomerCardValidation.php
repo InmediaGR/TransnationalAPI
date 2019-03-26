@@ -2,29 +2,18 @@
 namespace App\Transnational\APIValidation;
 
 use App\Transnational\APIException\InvalidParameterException;
-use App\Transnational\APIUtil\CardObject;
+use App\Transnational\APIUtil\CustomerCardObject;
 
-class TransactionCardValidation extends TransactionValidation{
+class TransactionCustomerCardValidation extends TransactionValidation{
 
-	/**
-	*	Transaction type options
-	*/
-	const CARD_ENTRY_TYPE_OPTIONS = array(
-		"TYPE_KEYED" => "keyed",
-		"TYPE_SWIPED" => "swiped"
-	);
 
-	public $entry_type;
 	public $number;
 	public $expiration;
-	public $cvc;
 
 
 	public function __construct($card){
-		$this->entry_type = $card[CardObject::ENTRY];
-		$this->number = $card[CardObject::NUMBER];
-		$this->expiration = $card[CardObject::EXPIRATIONDATE];
-		$this->cvc = $card[CardObject::CVC];
+		$this->number = $card[CustomerCardObject::NUMBER];
+		$this->expiration = $card[CustomerCardObject::EXPIRATIONDATE];
 	}
 
 	/**
@@ -32,17 +21,9 @@ class TransactionCardValidation extends TransactionValidation{
 	 * @throws InvalidParameterException - More details about why the card failed
 	 */
 	public function validate(){
-		$this->validateEntryType();
 		$this->validateCardNumber();
 		$this->validateExperation();
-		$this->validateCVC();
 		return $this->exception;
-	}
-
-	private function validateEntryType(){
-		if(!in_array($this->entry_type,self::CARD_ENTRY_TYPE_OPTIONS)){
-			$this->exception = new InvalidParameterException('Entry Type',implode(self::CARD_ENTRY_TYPE_OPTIONS,'","'));
-		}
 	}
 
 	private function validateCardNumber()

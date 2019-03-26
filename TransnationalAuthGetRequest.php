@@ -1,9 +1,11 @@
 <?php
+
+namespace App\Transnational;
+
 /**
 *	This class sets the getHeaders abstract method from Transnational API for use
 *	with any API class that need to be both a POST and Authenticated Request
 */
-require_once "TransnationalAPI.php";
 abstract class TransnationalAuthGetRequest extends TransnationalAPI
 {
 	/**

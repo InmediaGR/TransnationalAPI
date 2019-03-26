@@ -1,5 +1,8 @@
 <?php
-require_once "TransnationalAuthGetRequest.php";
+namespace App\Transnational;
+
+use App\Transnational\TransnationalAuthGetRequest;
+
 class TransactionStatus extends TransnationalAuthGetRequest
 {
 
