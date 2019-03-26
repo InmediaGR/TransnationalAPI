@@ -1,6 +1,5 @@
 <?php
-namespace App\Transnational\APIException;
-
+require_once("transnational/TransnationalException.php");
 class InvalidPaymentMethodException extends TransnationalException{
 
 }

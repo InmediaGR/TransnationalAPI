@@ -1,8 +1,5 @@
 <?php
-
-namespace App\Transnational;
-
-use App\Transnational\APIException\ErrorResultException;
+require_once "APIExceptions/ErrorResultException.php";
 
 class TransnationalResult{
 
@@ -39,19 +36,10 @@ class TransnationalResult{
 			$result = json_decode($json_result);
 			$this->request_status = $result->status;
 			$this->message = $result->msg;
-			if(isset($result->data)){
-				$this->data = $result->data;
-			}
+			$this->data = $result->data;
 		}else if($throwErrorOnFail){
 			throw new ErrorResultException($json_result,$http_code);
-		}
-	}
-
-	public function isSuccess(){
-		if($this->response_code == self::HTTP_OK && $this->get_request_status() == self::SUCCESS){
-			return true;
-		}
-		return false;
+		}		
 	}
 
 	public function get_http_response_code(){

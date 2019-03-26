@@ -1,10 +1,5 @@
 <?php
-namespace App\Transnational\APIValidation;
-
-use App\Transnational\APIException\InvalidParameterException;
-use App\Transnational\APIUtil\CardObject;
-
-class TransactionCardValidation extends TransactionValidation{
+class TransactionCardValidation{
 
 	/**
 	*	Transaction type options
@@ -20,28 +15,39 @@ class TransactionCardValidation extends TransactionValidation{
 	public $cvc;
 
 
-	public function __construct($card){
-		$this->entry_type = $card[CardObject::ENTRY];
-		$this->number = $card[CardObject::NUMBER];
-		$this->expiration = $card[CardObject::EXPIRATIONDATE];
-		$this->cvc = $card[CardObject::CVC];
+	public function __construct($entry_type,$number,$expiration,$cvc){
+		$this->entry_type = $entry_type;
+		$this->number = $number;
+		$this->expiration = $expiration;
+		$this->cvc = $cvc;
+
 	}
 
 	/**
 	 * Checks the paramters of the passed in card
 	 * @throws InvalidParameterException - More details about why the card failed
 	 */
-	public function validate(){
+	public function validateCard(){
 		$this->validateEntryType();
 		$this->validateCardNumber();
 		$this->validateExperation();
 		$this->validateCVC();
-		return $this->exception;
+	}
+
+	public function isCardValid(){
+		$isValid = false;
+		try{
+			$this->validateCard();
+			$isValid =  true;
+		}catch(InvalidParameterException $ignore){
+			$isValid = false;
+		}
+		return $isValid;
 	}
 
 	private function validateEntryType(){
 		if(!in_array($this->entry_type,self::CARD_ENTRY_TYPE_OPTIONS)){
-			$this->exception = new InvalidParameterException('Entry Type',implode(self::CARD_ENTRY_TYPE_OPTIONS,'","'));
+			throw new InvalidParameterException('Entry Type must be either ("' . implode(self::CARD_ENTRY_TYPE_OPTIONS,'","') . '")');
 		}
 	}
 
@@ -49,7 +55,7 @@ class TransactionCardValidation extends TransactionValidation{
 	{
 		$cc_number = strval($this->number);
 		if(!$this->is_valid_luhn($cc_number)){
-			$this->exception = new InvalidParameterException('Card','valid and pass luhn check');
+			throw new InvalidParameterException('Card Must be valid and pass luhn check');
 		}
 	}
 	private function validateExperation()
