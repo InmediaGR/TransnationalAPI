@@ -2,14 +2,14 @@
 
 namespace Transnational;
 
-use \\Transnational\TransnationalAuthPostRequest;
-use \\Transnational\ProcessTransactionResult;
-use \\Transnational\APIException\InvalidPaymentException;
-use \\Transnational\APIException\InvalidParameterException;
-use \\Transnational\APIException\InvalidAmountFormatException;
-use \\Transnational\APIValidation\TransactionCardValidation;
-use \\Transnational\APIValidation\TransactionAchValidation;
-use \\Transnational\APIValidation\TransactionAmountValidation;
+use \Transnational\TransnationalAuthPostRequest;
+use \Transnational\ProcessTransactionResult;
+use \Transnational\APIException\InvalidPaymentException;
+use \Transnational\APIException\InvalidParameterException;
+use \Transnational\APIException\InvalidAmountFormatException;
+use \Transnational\APIValidation\TransactionCardValidation;
+use \Transnational\APIValidation\TransactionAchValidation;
+use \Transnational\APIValidation\TransactionAmountValidation;
 
 /*
 *	Class to handle the API call - Get All Plans
