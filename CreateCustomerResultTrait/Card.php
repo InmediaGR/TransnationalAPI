@@ -1,5 +1,5 @@
 <?php
-namespace App\Transnational\CreateCustomerResultTrait;
+namespace Transnational\CreateCustomerResultTrait;
 trait Card{
 
 

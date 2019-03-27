@@ -1,8 +1,8 @@
 <?php
-namespace App\Transnational\APIValidation;
+namespace Transnational\APIValidation;
 
-use App\Transnational\APIException\InvalidParameterException;
-use App\Transnational\APIUtil\CardObject;
+use \Transnational\APIException\InvalidParameterException;
+use \Transnational\APIUtil\CardObject;
 
 class TransactionCardValidation extends TransactionValidation{
 

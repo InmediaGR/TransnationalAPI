@@ -1,8 +1,8 @@
 <?php
-namespace App\Transnational\RequestTrait;
+namespace Transnational\RequestTrait;
 
-use App\Transnational\APIUtil\AddressObject;
-use App\Transnational\APIValidation\AddressValidation;
+use \Transnational\APIUtil\AddressObject;
+use \Transnational\APIValidation\AddressValidation;
 
 /**
 * Trait to reuse billing address for POST requests

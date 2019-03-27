@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Transnational;
+namespace Transnational;
 
 class GetAllPlansResult extends TransnationalResult
 {

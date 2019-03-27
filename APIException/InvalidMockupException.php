@@ -1,7 +1,7 @@
 <?php
-namespace App\Transnational\APIException;
+namespace Transnational\APIException;
 
-use App\Transnational\TransnationalAPI;
+use \Transnational\TransnationalAPI;
 
 class InvalidMockupException extends TransnationalException{
 

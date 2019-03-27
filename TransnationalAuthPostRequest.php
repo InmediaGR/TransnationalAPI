@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Transnational;
+namespace Transnational;
 
 use Illuminate\Support\Facades\Log;
 

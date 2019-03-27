@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Transnational;
+namespace Transnational;
 
-use \App\Transnational\TransnationalAuthPostRequest;
-use \App\Transnational\ProcessTransactionResult;
-use \App\Transnational\APIException\InvalidPaymentException;
-use \App\Transnational\APIException\InvalidParameterException;
-use \App\Transnational\APIException\InvalidAmountFormatException;
-use \App\Transnational\APIValidation\TransactionCardValidation;
-use \App\Transnational\APIValidation\TransactionAchValidation;
-use \App\Transnational\APIValidation\TransactionAmountValidation;
+use \\Transnational\TransnationalAuthPostRequest;
+use \\Transnational\ProcessTransactionResult;
+use \\Transnational\APIException\InvalidPaymentException;
+use \\Transnational\APIException\InvalidParameterException;
+use \\Transnational\APIException\InvalidAmountFormatException;
+use \\Transnational\APIValidation\TransactionCardValidation;
+use \\Transnational\APIValidation\TransactionAchValidation;
+use \\Transnational\APIValidation\TransactionAmountValidation;
 
 /*
 *	Class to handle the API call - Get All Plans

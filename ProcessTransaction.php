@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Transnational;
+namespace Transnational;
 
-use App\Transnational\APIException\InvalidAmountFormatException;
-use App\Transnational\APIException\InvalidParameterException;
-use App\Transnational\APIException\InvalidPaymentException;
-use App\Transnational\APIUtil\AchObject;
-use App\Transnational\APIUtil\AddressObject;
-use App\Transnational\APIUtil\CardObject;
-use App\Transnational\APIValidation\TransactionAchValidation;
-use App\Transnational\APIValidation\TransactionAmountValidation;
-use App\Transnational\APIValidation\TransactionCardValidation;
-use App\Transnational\ProcessTransactionResult;
-use App\Transnational\RequestTrait;
-use App\Transnational\TransnationalAuthPostRequest;
+use \Transnational\APIException\InvalidAmountFormatException;
+use \Transnational\APIException\InvalidParameterException;
+use \Transnational\APIException\InvalidPaymentException;
+use \Transnational\APIUtil\AchObject;
+use \Transnational\APIUtil\AddressObject;
+use \Transnational\APIUtil\CardObject;
+use \Transnational\APIValidation\TransactionAchValidation;
+use \Transnational\APIValidation\TransactionAmountValidation;
+use \Transnational\APIValidation\TransactionCardValidation;
+use \Transnational\ProcessTransactionResult;
+use \Transnational\RequestTrait;
+use \Transnational\TransnationalAuthPostRequest;
 
 /*
 *	Class to handle the API call - Processing a Transaction

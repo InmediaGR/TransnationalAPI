@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Transnational;
+namespace Transnational;
 
-use App\Transnational\ProcessTransactionResultTrait\Ach;
-use App\Transnational\ProcessTransactionResultTrait\Card;
-use App\Transnational\ProcessTransactionResultTrait\Universal;
-use App\Transnational\ResponseTrait;
+use \Transnational\ProcessTransactionResultTrait\Ach;
+use \Transnational\ProcessTransactionResultTrait\Card;
+use \Transnational\ProcessTransactionResultTrait\Universal;
+use \Transnational\ResponseTrait;
 
 class ProcessTransactionResult extends TransnationalResult
 {

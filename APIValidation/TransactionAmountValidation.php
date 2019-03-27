@@ -1,7 +1,7 @@
 <?php
-namespace App\Transnational\APIValidation;
+namespace Transnational\APIValidation;
 
-use App\Transnational\APIException\InvalidAmountFormatException;
+use \Transnational\APIException\InvalidAmountFormatException;
 
 class TransactionAmountValidation extends TransactionValidation{
 

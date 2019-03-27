@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Transnational;
+namespace Transnational;
 
-use App\Transnational\ResponseTrait;
+use \Transnational\ResponseTrait;
 
 class CreatePlanResult extends TransnationalResult
 {

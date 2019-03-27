@@ -1,5 +1,5 @@
 <?php
-namespace App\Transnational\APIException;
+namespace Transnational\APIException;
 
 class WrongCallException extends TransnationalException{
 

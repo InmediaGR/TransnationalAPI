@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Transnational;
+namespace Transnational;
 
-use App\Transnational\APIException\InvalidPaymentException;
-use App\Transnational\APIUtil\CardObject;
-use App\Transnational\APIUtil\CustomerCardObject;
-use App\Transnational\APIValidation\BillingValidation;
-use App\Transnational\APIValidation\TransactionAmountValidation;
-use App\Transnational\APIValidation\TransactionCustomerCardValidation;
-use App\Transnational\CreateCustomerResult;
-use App\Transnational\RequestTrait;
-use App\Transnational\TransnationalAuthPostRequest;
+use \Transnational\APIException\InvalidPaymentException;
+use \Transnational\APIUtil\CardObject;
+use \Transnational\APIUtil\CustomerCardObject;
+use \Transnational\APIValidation\BillingValidation;
+use \Transnational\APIValidation\TransactionAmountValidation;
+use \Transnational\APIValidation\TransactionCustomerCardValidation;
+use \Transnational\CreateCustomerResult;
+use \Transnational\RequestTrait;
+use \Transnational\TransnationalAuthPostRequest;
 
 /*
 *	Class to handle the API call - Create A Plan

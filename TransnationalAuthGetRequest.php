@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Transnational;
+namespace Transnational;
 
 /**
 *	This class sets the getHeaders abstract method from Transnational API for use

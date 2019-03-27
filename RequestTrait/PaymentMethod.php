@@ -1,11 +1,11 @@
 <?php
-namespace App\Transnational\RequestTrait;
+namespace Transnational\RequestTrait;
 
-use App\Transnational\APIException\InvalidPaymentException;
-use App\Transnational\APIUtil\AchObject;
-use App\Transnational\APIUtil\CardObject;
-use App\Transnational\APIValidation\TransactionAchValidation;
-use App\Transnational\APIValidation\TransactionCardValidation;
+use \Transnational\APIException\InvalidPaymentException;
+use \Transnational\APIUtil\AchObject;
+use \Transnational\APIUtil\CardObject;
+use \Transnational\APIValidation\TransactionAchValidation;
+use \Transnational\APIValidation\TransactionCardValidation;
 trait PaymentMethod{
 
 	/**

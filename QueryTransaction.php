@@ -1,8 +1,8 @@
 <?php
-namespace App\Transnational;
+namespace Transnational;
 
-use App\Transnational\QueryTransactionResult;
-use App\Transnational\TransnationalResult;
+use \Transnational\QueryTransactionResult;
+use \Transnational\TransnationalResult;
 
 class QueryTransaction extends TransnationalAuthPostRequest
 {

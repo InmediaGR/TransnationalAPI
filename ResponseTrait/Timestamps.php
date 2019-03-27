@@ -1,5 +1,5 @@
 <?php
-namespace App\Transnational\ResponseTrait;
+namespace Transnational\ResponseTrait;
 
 /**
 * Trait to reuse address returns from repsonses

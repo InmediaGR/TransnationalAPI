@@ -1,8 +1,8 @@
 <?php
-namespace App\Transnational\APIValidation;
+namespace Transnational\APIValidation;
 
-use App\Transnational\APIException\InvalidAmountFormatException;
-use App\Transnational\APIException\InvalidRecurringBillingFormatException;
+use \Transnational\APIException\InvalidAmountFormatException;
+use \Transnational\APIException\InvalidRecurringBillingFormatException;
 
 class BillingValidation extends TransactionValidation{
 

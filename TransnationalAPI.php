@@ -1,5 +1,5 @@
 <?php
-namespace App\Transnational;
+namespace Transnational;
 
 abstract class TransnationalAPI
 {

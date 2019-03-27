@@ -1,7 +1,7 @@
 <?php
-namespace App\Transnational\ResponseTrait;
+namespace Transnational\ResponseTrait;
 
-use App\Transnational\APIUtil\AddressObject;
+use \Transnational\APIUtil\AddressObject;
 
 /**
 * Trait to reuse address returns from repsonses

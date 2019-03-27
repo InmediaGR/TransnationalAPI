@@ -1,7 +1,7 @@
 <?php
-namespace App\Transnational\APIValidation;
+namespace Transnational\APIValidation;
 
-use App\Transnational\APIException\InvalidParameterException;
+use \Transnational\APIException\InvalidParameterException;
 
 class TransactionAchValidation extends TransactionValidation{
 

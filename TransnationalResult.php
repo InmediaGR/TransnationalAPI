@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Transnational;
+namespace Transnational;
 
-use App\Transnational\APIException\ErrorResultException;
+use \Transnational\APIException\ErrorResultException;
 
 class TransnationalResult{
 

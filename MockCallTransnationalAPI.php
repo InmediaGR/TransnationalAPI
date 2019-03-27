@@ -1,13 +1,13 @@
 <?php
-namespace App\Transnational;
+namespace Transnational;
 
-use App\Transnational\APIException\InvalidMockupException;
-use App\Transnational\APIException\WrongCallException;
-use App\Transnational\GetAllPlans;
-use App\Transnational\QueryTransaction;
-use App\Transnational\Testing\MockupResponse;
-use App\Transnational\TransnationalAPI;
-use App\Transnational\TransnationalResult;
+use \Transnational\APIException\InvalidMockupException;
+use \Transnational\APIException\WrongCallException;
+use \Transnational\GetAllPlans;
+use \Transnational\QueryTransaction;
+use \Transnational\Testing\MockupResponse;
+use \Transnational\TransnationalAPI;
+use \Transnational\TransnationalResult;
 
 class MockCallTransnationalAPI{
 

@@ -1,5 +1,5 @@
 <?php
-namespace App\Transnational\APIUtil;
+namespace Transnational\APIUtil;
 
 /*
 *	Class to build up credit card object

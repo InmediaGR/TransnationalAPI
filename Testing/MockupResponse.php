@@ -1,5 +1,5 @@
 <?php
-namespace App\Transnational\Testing;
+namespace Transnational\Testing;
 
 class MockupResponse{
 

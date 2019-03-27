@@ -1,5 +1,5 @@
 <?php
-namespace App\Transnational\APIException;
+namespace Transnational\APIException;
 
 class InvalidParameterException extends TransnationalException{
 	public function __construct($invalid,$acceptable, $code = 0, Exception $previous = null) {

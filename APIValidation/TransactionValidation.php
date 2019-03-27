@@ -1,5 +1,5 @@
 <?php
-namespace App\Transnational\APIValidation;
+namespace Transnational\APIValidation;
 
 abstract class TransactionValidation{
 

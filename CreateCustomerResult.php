@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Transnational;
+namespace Transnational;
 
-use App\Transnational\CreateCustomerResultTrait\Card;
-use App\Transnational\ResponseTrait;
+use \Transnational\CreateCustomerResultTrait\Card;
+use \Transnational\ResponseTrait;
 
 class CreateCustomerResult extends TransnationalResult
 {
