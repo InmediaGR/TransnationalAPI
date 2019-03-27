@@ -67,7 +67,8 @@ trait PaymentMethod{
 	 * @return boolean
 	 */
 	public function addPaymentMethodPOST(&$data){
-		if($this->getPaymentMethod() == null){
+		$payment_method = $this->getPaymentMethod();
+		if($payment_method != null){
 			$data['payment_method'] = $payment_method;
 			return true;
 		}

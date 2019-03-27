@@ -253,7 +253,7 @@ class ProcessTransaction extends TransnationalAuthPostRequest
 	/**
 	* Wrapper method to the TransnationalAPI->callAPI method
 	*/
-	public function ProcessTransaction($auth){
+	public function run($auth){
 		return new ProcessTransactionResult($this->callAPI($auth),$this->getHTTPCode());
 	}
 
