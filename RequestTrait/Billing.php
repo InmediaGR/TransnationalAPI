@@ -2,7 +2,7 @@
 namespace Transnational\RequestTrait;
 
 use \Transnational\APIValidation\BillingValidation;
-use \Carbon;
+use Carbon\Carbon;
 
 /**
 * Trait to reuse billing address for POST requests
