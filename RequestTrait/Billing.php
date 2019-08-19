@@ -77,7 +77,7 @@ trait Billing{
 		$data['billing_frequency'] = $this->billing_frequency;
 		$data['billing_days'] = implode(',',$this->billing_days);
 		$data['duration'] = $this->duration;
-		$data['Next_bill_date'] = getNextBillingDate($data['billing_days'][0]);
+		$data['Next_bill_date'] = $this->getNextBillingDate($data['billing_days'][0]);
 	}
 
 	protected function setEndlessDuration(){
