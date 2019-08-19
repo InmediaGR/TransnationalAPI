@@ -2,6 +2,7 @@
 namespace Transnational\RequestTrait;
 
 use \Transnational\APIValidation\BillingValidation;
+use \Carbon;
 
 /**
 * Trait to reuse billing address for POST requests
@@ -76,10 +77,20 @@ trait Billing{
 		$data['billing_frequency'] = $this->billing_frequency;
 		$data['billing_days'] = implode(',',$this->billing_days);
 		$data['duration'] = $this->duration;
+		$data['Next_bill_date'] = getNextBillingDate($data['billing_days'][0]);
 	}
 
 	protected function setEndlessDuration(){
 		$this->duration = 0;
+	}
+
+	protected function getNextBillingDate($billing_date){
+		$current = Carbon::now();
+		if($billing_date < $current->day){
+			$current->addMonth();
+		}
+		$carbon = Carbon::createFromDate($current->year, $current->month, $billing_date);
+		return $carbon->toDateString();
 	}
 
 
