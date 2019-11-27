@@ -1,25 +1,29 @@
 {
-	"name": "nmc9/tnp-helper",
-	"type": "library",
-	"description": "Helpers to intergate with Transnational Payments",
-	"keywords": ["TNP","Transnational"],
-	"license": "MIT",
-	"authors": [
-		{
-			"name": "Nicholas Caruso",
-			"email": "nmc9@pct.edu",
-			"role": "Developer"
-		}
-	],
-
-	"autoload":{
-		"classmap":[
-			"./"
-		]
-	},
-	"minimum-stability": "dev",
-	"prefer-stable": true,
-	"require": {
-		"nesbot/carbon":"1.25.*"
-	}
+    "name": "nmc9/tnp-helper",
+    "type": "library",
+    "description": "Helpers to intergate with Transnational Payments",
+    "keywords": [
+        "TNP",
+        "Transnational"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nicholas Caruso",
+            "email": "nmc9@pct.edu",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "classmap": [
+            "./"
+        ]
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "nesbot/carbon": "^2.0.0"
+    },
+    "require-dev": {
+    }
 }
