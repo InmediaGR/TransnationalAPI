@@ -156,7 +156,8 @@ class CreateCustomer extends TransnationalAuthPostRequest
 			$this->exceptions[] = new InvalidPaymentException();
 		}
 		$this->addAddressPOST($data);
-		return json_encode($data);
+		return json_encode($data,JSON_UNESCAPED_SLASHES);
+
 	}
 
 	/**

@@ -12,7 +12,7 @@ class ErrorResultException extends TransnationalException{
 		$this->http_code = $http_code;
 		$message = "API call returned with unexpected results. ";
 		$message .= "[Http code]: (" . $http_code  . ") ";
-		$message .= "[json data]: (" . json_encode($json_data)  . ") ";
+		$message .= "[json data]: (" . json_encode($json_data,JSON_UNESCAPED_SLASHES)  . ") ";
 
         // make sure everything is assigned properly
 		parent::__construct($message, $code, $previous);

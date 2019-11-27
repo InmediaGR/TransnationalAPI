@@ -103,7 +103,8 @@ class QueryTransaction extends TransnationalAuthPostRequest
 		if(!$data){
 			return "{}";
 		}
-		return json_encode($data);
+		return json_encode($data,JSON_UNESCAPED_SLASHES);
+
 	}
 
 

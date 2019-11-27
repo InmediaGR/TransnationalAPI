@@ -102,7 +102,8 @@ class CreatePlan extends TransnationalAuthPostRequest
 			$data['discounts'] = $this->discounts;
 		}
 
-		return json_encode($data);
+		return json_encode($data,JSON_UNESCAPED_SLASHES);
+
 	}
 
 	/**

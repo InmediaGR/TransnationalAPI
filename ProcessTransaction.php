@@ -226,7 +226,8 @@ class ProcessTransaction extends TransnationalAuthPostRequest
 			$data['email_address'] = $this->email_address;
 		}
 		$this->addAddressPOST($data);
-		return json_encode($data);
+		return json_encode($data,JSON_UNESCAPED_SLASHES);
+
 	}
 
 	private function checkAndAddAmounts(&$data){
